@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Soldiers</title>
+</head>
+<body>
+
+
+<ul class="soldiers-list"></ul>
+
+
+<script>
+
+
+var soldierListItem = document.createElement('li');
+var soldierListItemText = document.createTextNode('Test');
+soldierListItem.appendChild(soldierListItemText);
+
+document.querySelector('.soldiers-list').appendChild(soldierListItem);
+
+console.log(document.querySelector('.soldiers-list'));
+
+
+var firstName = 'DefaultFirst';
+var lastName = 'DefaultLast';
+
+/*************************************************************************/
+
+// Soldier Constructor Function
+function Person(firstName, lastName) {
+    // the `this` keyword points to the object that's invoking the current function, aka pointer to an object
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+    // Standalone Function (customizable for each instance)
+    this.fullName = function() {
+        return this.firstName + ' ' + this.lastName;
+    };
+}
+
+// Share method across all objects (not modifiable)
+Person.prototype.fullNameReversed = function() {
+    return this.lastName + ' ' + this.firstName;
+}
+
+
+/*************************************************************************/
+
+
+var auzam = new Person('Auzam', 'Tem');
+console.log(auzam.firstName);
+console.log(auzam.fullName());
+
+auzam.firstName = 'Auzam-Se'
+console.log(auzam.fullName());
+
+console.log(auzam.fullNameReversed());
+
+// Add a gender property to this instance only
+auzam.gender = 'male';
+console.log(auzam.gender);
+
+
+console.log('--------------------------------------------');
+
+
+var setum = new Person('Setum', 'Qa');
+console.log(setum.firstName);
+console.log(setum.lastName);
+
+// Modify the original fullName()
+setum.fullName = function() {
+    return this.firstName + ' ' + this.lastName + '!';
+}
+
+console.log(setum.fullName());
+
+console.log('--------------------------------------------');
+
+// This person is not a soldier because without the `new` keyword, `this` refers to the global object
+var george = Person('George', 'Foreman');
+console.log(george.firstName);
+
+
+
+</script>
+
+</body>
+</html>
