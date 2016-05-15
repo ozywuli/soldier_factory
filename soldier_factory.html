@@ -62,7 +62,13 @@ auzam.gender = 'male';
 console.log(auzam.gender);
 
 
+
+
 console.log('--------------------------------------------');
+
+
+
+
 
 
 var setum = new Person('Setum', 'Qa');
@@ -76,11 +82,104 @@ setum.fullName = function() {
 
 console.log(setum.fullName());
 
+
+
+
+
+
 console.log('--------------------------------------------');
+
+
+
+
 
 // This person is not a soldier because without the `new` keyword, `this` refers to the global object
 var george = Person('George', 'Foreman');
-console.log(george.firstName);
+// console.log(george.firstName); // undefined
+
+
+
+
+
+console.log('--------------------------------------------');
+
+
+
+
+
+var uruk = new Person('Uruk', 'Tammu');
+console.log(uruk.firstName);
+console.log(uruk.lastName);
+
+console.log(uruk.fullNameReversed());
+
+
+
+
+
+console.log('--------------------------------------------');
+
+
+
+
+
+
+
+function Cavalry(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
+
+Cavalry.prototype.fullNameReversed = function() {
+    return this.lastName + ' ' + this.firstName;
+}
+
+
+
+
+
+console.log('--------------------------------------------');
+
+
+
+var ademi = new Cavalry('Ademi', 'Tan');
+
+console.log(ademi.firstName);
+console.log(ademi.lastName);
+console.log(ademi.fullNameReversed());
+
+
+
+
+console.log('--------------------------------------------');
+
+
+var yukon = new Cavalry('Yukon', 'San');
+console.log(yukon.firstName);
+console.log(yukon.lastName);
+console.log(yukon.fullNameReversed());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
