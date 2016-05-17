@@ -5,7 +5,7 @@
     <title>Soldiers</title>
 </head>
 <body>
-
+<a href="http://www.samselikoff.com/blog/some-Javascript-constructor-patterns/">http://www.samselikoff.com/blog/some-Javascript-constructor-patterns/</a>
 
 <ul class="soldiers-list"></ul>
 
@@ -28,6 +28,7 @@ var lastName = 'DefaultLast';
 /*************************************************************************/
 
 // Soldier Constructor Function
+// capitalizing constructor functions as a rule of thumb
 function Person(firstName, lastName) {
     // the `this` keyword points to the object that's invoking the current function, aka pointer to an object
     this.firstName = firstName;
@@ -74,6 +75,13 @@ console.log('--------------------------------------------');
 var setum = new Person('Setum', 'Qa');
 console.log(setum.firstName);
 console.log(setum.lastName);
+
+// create a new object property at runtime
+setum.age = 33;
+console.log(setum.age);
+
+// modify an object property at runtime
+setum.firstName = 'setum ii';
 
 // Modify the original fullName()
 setum.fullName = function() {

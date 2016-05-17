@@ -1,0 +1,47 @@
+<script>
+
+function Person(firstName, lastName) {
+    var _firstName = firstName;
+    var _lastName = lastName;
+
+    var my = {
+        firstName: _firstName,
+        lastName: _lastName
+    };
+
+    my.fullName = function() {
+        return _firstName + ' ' + _lastName;
+    };
+
+    // Getters/setters
+    my.firstName = function(value) {
+        if (!arguments.length) { return _firstName; }
+
+        _firstName = value;
+
+        return my;
+    }
+
+    my.lastName = function(value) {
+        if (!arguments.length) { return _lastName; }
+
+        _lastName = value;
+
+        return my;
+    }
+
+    //
+    return my;
+}
+
+var mark = Person('Mark', 'Twain');
+
+console.log(mark.fullName());
+
+
+var bruce = Person('Bruce', 'Wayne');
+
+console.log(bruce.fullName());
+
+
+</script>
