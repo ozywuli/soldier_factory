@@ -1,6 +1,11 @@
 <script>
 
 function Person(firstName, lastName) {
+
+    // private vars are prefixed with underscores
+    // typically when a function finishes executing, the vars declared within that function fall out of scope and get destroyed
+    // the only exception is if any code outside the function holds a reference to those variables after the function finishs executing
+    // when a function has access to outside vars, a closure is formed and vars will remain in memory
     var _firstName = firstName;
     var _lastName = lastName;
 
@@ -11,37 +16,39 @@ function Person(firstName, lastName) {
 
     my.fullName = function() {
         return _firstName + ' ' + _lastName;
-    };
+    }
 
-    // Getters/setters
+    // Getters / setters
     my.firstName = function(value) {
         if (!arguments.length) { return _firstName; }
 
         _firstName = value;
 
-        return my;
+
+
     }
 
+
     my.lastName = function(value) {
-        if (!arguments.length) { return _lastName; }
+        if (!arguments.length) { return _lastName };
 
         _lastName = value;
 
-        return my;
+ 
     }
 
-    //
     return my;
+
 }
+
 
 var mark = Person('Mark', 'Twain');
 
+// mark.firstName('Samuel');
+// mark.lastName('Clemens');
+
 console.log(mark.fullName());
 
-
-var bruce = Person('Bruce', 'Wayne');
-
-console.log(bruce.fullName());
 
 
 </script>
